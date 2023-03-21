@@ -105,6 +105,8 @@ for pk in private_keys:
     try:
         txn_hash = w3.eth.sendRawTransaction(signed_txn.rawTransaction)
         print(f"Transaction sent for {address} with hash {txn_hash.hex()}")
+        # Delete this if you don't want to wait for receipt. 
+        # Although you might get timedout
         txn_receipt = w3.eth.waitForTransactionReceipt(txn_hash)
         if txn_receipt['status']:
             print(f"Transfer successful for {address}...")
