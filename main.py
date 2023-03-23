@@ -23,6 +23,9 @@ with open('config.json', 'r') as f:
 rpc_url = config['rpc']
 private_keys = config['privatekeys']
 
+for pk in private_keys:
+    print(Account.from_key(pk).address)
+
 # Connect to Arbitrum node
 w3 = Web3(Web3.HTTPProvider(rpc_url))
 
